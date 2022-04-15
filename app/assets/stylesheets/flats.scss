@@ -1,3 +1,68 @@
 // Place all the styles related to the flats controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+body{
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.flex-container{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card-flat {
+  width: 350px;
+  background-color: rgba(185, 185, 185, 0.097);
+  border-radius: 5px;
+  margin: 40px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.card-img{
+  width: 350px;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-flat-infos{
+  margin-left: 10px;
+}
+
+.title-container{
+  margin-left: 40px
+}
+
+
+.img-background{
+  background-image: url('https://source.unsplash.com/random/900%C3%97700/?interior,design');
+  height: 400px;
+}
+
+.flex-show{
+  display:flex;
+  justify-content: center;
+}
+.flat-container{
+  margin-top: -50px;
+  padding-top: 20px;
+  text-align: center;
+  background-color:rgb(240, 240, 240);
+  width: 800px;
+  border-radius: 8px;
+  padding-bottom: 100px;
+}
+
+.info-container{
+  margin-top: -50px;
+  padding-top: 20px;
+  text-align: center;
+  margin-left: 40px;
+  background-color:rgb(240, 240, 240);
+  border-radius: 8px;
+  width: 200px;
+}
+
+.description{
+  margin-top: 50px;
+}

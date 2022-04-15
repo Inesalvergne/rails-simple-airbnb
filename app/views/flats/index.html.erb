@@ -1,0 +1,18 @@
+<div class= "title-container">
+  <h1> Welcome to SimpleBnB </h1>
+  <p> We have <%= @flats.count %> beautiful flats available right now. Have a look! </p>
+</div>
+
+<div class= flex-container>
+  <% @flats.each do |flat| %>
+     <div class="card-flat">
+        <img class= "card-img" src="https://source.unsplash.com/random/900%C3%97700/?interior,design"/>
+        <div class="card-flat-infos">
+          <h3> <%= flat.name %>  </h3>
+          <p><%= flat.address %></p>
+          <p> <strong> $<%= flat.price_per_night %> </strong></p>
+          <p> <%= link_to "More info", flat_path(flat) %> </p>
+      </div>
+    </div>
+  <% end %>
+</div>
