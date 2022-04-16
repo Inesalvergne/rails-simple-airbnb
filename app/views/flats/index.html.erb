@@ -1,17 +1,61 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+      <div class="container-fluid">
+             <%= link_to "SimpleBnB", flats_path %>
+          <div class="d-flex">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <i class="bi bi-plus"></i>
+              <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                      Add a new flat
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel"> Add a new flat to SimpleBnB</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                            <%= simple_form_for [@flat] do |f| %>
+                                <%= f.input :name %>
+                                <%= f.input :address %>
+                                <%= f.input :description %>
+                                <%= f.input :price_per_night %>
+                                <%= f.input :number_of_guests %>
+                                <%= f.input :image %>
+                                <%= f.submit "Create flat", class: "btn btn-primary" %>
+                            <% end %>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+            </li>
+            <ul>
+          </div>
+        </div>
+      </div>
+</nav>
+
 <div class= "title-container">
-  <h1> Welcome to SimpleBnB </h1>
+  <h2> Welcome to SimpleBnB </h2>
   <p> We have <%= @flats.count %> beautiful flats available right now. Have a look! </p>
 </div>
 
 <div class= flex-container>
   <% @flats.each do |flat| %>
      <div class="card-flat">
-        <img class= "card-img" src="https://source.unsplash.com/random/900%C3%97700/?interior,design"/>
+        <img class= "card-img" src= "<%= flat.image %>"/>
         <div class="card-flat-infos">
           <h3> <%= flat.name %>  </h3>
           <p><%= flat.address %></p>
           <p> <strong> $<%= flat.price_per_night %> </strong></p>
-          <p> <%= link_to "More info", flat_path(flat) %> </p>
+          <p> <%= link_to "More info", flat_path(flat) %> | <i class="bi bi-trash3"></i> <%= link_to "Delete",
+                flat_path(flat),
+                method: :delete,
+                data: { confirm: "Are you sure?" } %> </p>
       </div>
     </div>
   <% end %>
